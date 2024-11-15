@@ -1,0 +1,67 @@
+body {
+    background-color: #fcdef1;
+    font-family: Arial, sans-serif;
+}
+
+.market-map {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1.map-title {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.category {
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    display: inline-block;
+}
+
+.category-title {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: -30px;
+    padding: 5px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+
+.companies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.company {
+    text-align: center;
+    width: 64px;
+    height: 64px;
+}
+
+.company-logo-container {
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-color: #bbb;
+}
+
+.company-logo-container img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.company-name {
+    width: 48px;
+    margin-top: 4px;
+    font-size: 11px;
+    word-wrap: break-word;
+}
