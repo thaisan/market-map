@@ -16,18 +16,18 @@ def add_http_to_url(url):
         return 'http://' + url
     return url
 
-def generate_market_map():
+def generate_market_map(df):
+    # Group by category
+    categories = df.groupby('Category')
+
     # Create necessary directories
     os.makedirs('output', exist_ok=True)
 
     # Read templates
     template_dir = Path('templates')
-    with open(template_dir / 'template.html', 'r') as f:
+    with open(template_dir / 'map_template.html', 'r') as f:
         html_template = f.read()
     
-    with open(template_dir / 'style.css', 'r') as f:
-        css_content = f.read()
-
     # Generate categories HTML
     categories_html = ''
     for category, group in categories:
@@ -61,22 +61,10 @@ def generate_market_map():
         '''
 
     # Generate final HTML
-    title = 'GenAI Prototyping Tools Market Map'
+    title = 'GenAI Prototyping Tools'
     final_html = html_template.replace('{{title}}', title)
     final_html = final_html.replace('{{categories}}', categories_html)
 
     # Save the files
     with open('output/market_map.html', 'w') as f:
         f.write(final_html)
-    
-    with open('output/style.css', 'w') as f:
-        f.write(css_content)
-
-# Read the CSV file
-df = pd.read_csv('data.csv', sep=',', names=['Company Name', 'URL', 'Category'])
-
-# Group by category
-categories = df.groupby('Category')
-
-# Generate the market map
-generate_market_map()
